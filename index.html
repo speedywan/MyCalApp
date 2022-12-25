@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/x.css">
+  </head>
+  <body>
+    <h1></h1>
+    <br>
+
+
+    <form>
+      <input type="text" id="input" />
+      <br />
+      <br />
+      <input type="button" value="7" onclick="addInput(7)" />
+      <input type="button" value="8" onclick="addInput(8)" />
+      <input type="button" value="9" onclick="addInput(9)" />
+      <input style="background-color: rgb(211, 147, 8);" type="button" value="+" onclick="addInput('+')" />
+      <br />
+      <input type="button" value="4" onclick="addInput(4)" />
+      <input type="button" value="5" onclick="addInput(5)" />
+      <input type="button" value="6" onclick="addInput(6)" />
+      <input style="background-color: rgb(211, 147, 8);" type="button" value="-" onclick="addInput('-')" />
+      <br />
+      <input type="button" value="1" onclick="addInput(1)" />
+      <input type="button" value="2" onclick="addInput(2)" />
+      <input type="button" value="3" onclick="addInput(3)" />
+      <input style="background-color: rgb(211, 147, 8);" type="button" value="*" onclick="addInput('*')" />
+      <br />
+      <input type="button" value="." onclick="addInput('.')" />
+      <input type="button" value="0" onclick="addInput(0)" />
+      <input type="button" value="/" onclick="addInput('/')" />
+      
+      
+      <input style="background-color: rgb(211, 147, 8);" type="button" value="AC" onclick="clearInput()" />
+      <br>
+  
+      <input style="width: 312px; background-color: rgb(211, 147, 8);" type="button" value="=" onclick="addInput('=')" />
+    </form>
+
+    <script>
+      function addInput(input) {
+        document.getElementById('input').value += input;
+      }
+
+      function clearInput() {
+        document.getElementById('input').value = '';
+      }
+
+      function addInput(input) {
+  var inputField = document.getElementById('input');
+  var currentInput = inputField.value;
+
+  // If the input is '=' and the current input contains a mathematical expression,
+  // evaluate the expression and display the result.
+  if (input === '=') {
+    if (/[0-9.]+[+-/*][0-9.]+/.test(currentInput)) {
+      inputField.value = eval(currentInput);
+    }
+  } else {
+    // Otherwise, just append the input to the current input.
+    inputField.value += input;
+  }
+}
+
+function clearInput() {
+  // Clear the input field.
+  document.getElementById('input').value = '';
+}
+    </script>
+  </body>
+</html>
